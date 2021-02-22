@@ -1,34 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Context, SetContext } from "./index";
 
-function App() {
+const App = () => {
+  const contextState = useContext(Context);
+  const setContext = useContext(SetContext);
+  const { count } = contextState;
+
   return (
-    <Context.Consumer>
-      {(contextState) => {
-        const { count } = contextState;
-        return (
-          <SetContext.Consumer>
-            {(setContext) => (
-              <div>
-                <h3>React hooks</h3>
-                <button
-                  onClick={() => {
-                    setContext({
-                      ...contextState,
-                      count: count ? count + 1 : 1,
-                    });
-                  }}
-                >
-                  click
-                </button>
-                <p>{JSON.stringify(contextState)}</p>
-              </div>
-            )}
-          </SetContext.Consumer>
-        );
-      }}
-    </Context.Consumer>
+    <div>
+      <h3>React hooks</h3>
+      <button
+        onClick={() => {
+          setContext({
+            ...contextState,
+            count: count ? count + 1 : 1,
+          });
+        }}
+      >
+        click
+      </button>
+      <p>{JSON.stringify(contextState)}</p>
+    </div>
   );
-}
+};
 
 export default App;
