@@ -7,7 +7,7 @@ const mapActions = {
     description: "创建一个项目", // 描述
     examples: [
       //用法
-      "xj-cli create <project-name>",
+      "txj-cli create <project-name>",
     ],
   },
   config: {
@@ -16,8 +16,8 @@ const mapActions = {
     description: "config project variable", // 描述
     examples: [
       //用法
-      "xj-cli config set <k> <v>",
-      "xj-cli config get <k>",
+      "txj-cli config set <k> <v>",
+      "txj-cli config get <k>",
     ],
   },
   "*": {

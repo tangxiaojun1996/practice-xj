@@ -1,9 +1,9 @@
 {
   "bin": {
-    "xj-cli": "./bin/www"
+    "txj-cli": "./bin/www"
   },
-  "name": "xj-cli",
-  "version": "1.0.0",
+  "name": "txj-cli",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
