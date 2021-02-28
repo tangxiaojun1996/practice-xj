@@ -1,9 +1,6 @@
-const axios = require("axios");
 const inquirer = require("inquirer");
 
-const { fnLoadingByOra, fetchReposList } = "./utils/common.js";
-
-const url = "https://api.github.com/users/tangxiaojun1996/repos";
+const { fnLoadingByOra, fetchReposList } = require("./utils/common.js");
 
 module.exports = async (projectName) => {
   console.log(`enter create.js, projectName: ${projectName}`);
