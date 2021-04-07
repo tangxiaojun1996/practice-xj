@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<input oninput="handleInputChange(value)">
+	<p id='p'></p>	
+</body>
+
+<script>
+
+	var data = {
+		message: 1,
+	}
+
+	handleInputChange = (value) => {
+		data.message = value;
+	}
+
+	function addListener(obj, key, fn)  {
+		Object.defineProperty(obj, key, {
+			enumerable: true,
+			configurable: true,
+			get(){
+				return data[key];
+			},
+			set(newVal){
+				console.log('set newVal: ', newVal);
+				fn(newVal);
+			}
+		})
+	}
+
+	addListener(data, 'message', (val) => {
+		const ele = document.getElementById('p');
+		ele.innerHTML = val;
+	});
+
+	
+</script>
+
+</html>
