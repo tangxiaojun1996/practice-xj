@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div style="width:100px;height:3000px;background-color: red;"></div>
+  <script src="https://cdn.bootcdn.net/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
+  <script src="./debounce.js"></script>
+  <script src="./throttle.js"></script>
+
+  <script>
+
+    function scroll(a, b, c) {
+      console.log('测试防抖', a, b, c)
+    }
+
+
+    const myDebounce = debounce(scroll, 2000)
+    // const myThrottle = _.throttle(scroll, 3000)
+    const myThrottle = throttle(scroll, 3000)
+    const a = _.curry(scroll)
+    a(1, 2)(1, 23)
+    // window.onscroll = myDebounce
+    window.addEventListener('scroll', myThrottle)
+  </script>
+</body>
+
+</html>
