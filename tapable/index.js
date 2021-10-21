@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const tapable = require("tapable");
 
 const { SyncHook, AsyncParallelHook } = tapable;
@@ -14,15 +15,16 @@ class Car {
       ]),
     };
   }
-
-  /* ... */
 }
 
 const myCar = new Car();
 
-// Use the tap method to add a consument
-myCar.hooks.brake.tap("WarningLampPlugin", (params, qwe1) => {
-  console.log("enter WarningLampPlugin", params, qwe1);
+myCar.hooks.accelerate.tap("AcceleratePlugin", () => {
+  console.log("enter AcceleratePlugin");
+});
+
+myCar.hooks.brake.tap("WarningLampPlugin", (params) => {
+  console.log("enter WarningLampPlugin", params);
 });
 
 myCar.hooks.calculateRoutes.tapPromise(
@@ -48,5 +50,6 @@ myCar.hooks.calculateRoutes.tapAsync(
   }
 );
 
-myCar.hooks.brake.call("qweqwe", "123");
+myCar.hooks.accelerate.call();
+myCar.hooks.brake.call("braking");
 myCar.hooks.calculateRoutes.callAsync("s", "t", "r", () => {});
