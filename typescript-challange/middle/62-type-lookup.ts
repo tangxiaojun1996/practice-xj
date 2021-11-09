@@ -32,6 +32,7 @@
 
 /* _____________ 你的代码 _____________ */
 type LookUp<U, T> = U extends { type: T } ? U : never
+// 重点：对于联合类型，实际上会把其中的每个类型代入进行判断，如果返回never的会被忽略。所以可以过滤出预期的interface
 
 /* _____________ 测试用例 _____________ */
 import { Equal, Expect } from '@type-challenges/utils'
